@@ -23,7 +23,7 @@
 # Set Environment variables
 # Immediately print out python prints
 ENV PYTHONUNBUFFERED=1
-ENV REACT_APP_API_URL=nexentra.fly.dev
+ENV REACT_APP_API_URL=https://nexentra.fly.dev
 
 
 # Expose app ports

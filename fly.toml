@@ -5,6 +5,7 @@ app = "nexentra"
 
 [[services]]
   internal_port = 8000  # Backend running on port 8000
+  external_port = 80  # Or any port Fly.io uses for external access
   protocol = "tcp"
 
   [[services.ports]]
@@ -19,6 +20,7 @@ app = "nexentra"
 
 [[services]]
   internal_port = 3000  # Frontend running on port 3000
+  external_port = 80  # Or the port your platform uses for external access
   protocol = "tcp"
 
   [[services.ports]]

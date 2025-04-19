@@ -20,7 +20,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          This is the message from the Python backend: {data}
+          This is the message frommmm the Python backend: {data}
         </p>
         <a
           className="App-link"
