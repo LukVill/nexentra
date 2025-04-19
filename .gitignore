@@ -1,0 +1,5 @@
+back/venv
+back/__pycache__
+front/node_modules
+front/build
+.github

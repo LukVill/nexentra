@@ -1,0 +1,30 @@
+app = "nexentra"
+
+[build]
+  dockerfile = "dockerfile"
+
+[[services]]
+  internal_port = 8000  # Backend running on port 8000
+  protocol = "tcp"
+
+  [[services.ports]]
+    port = 80
+    handlers = ["http"]
+    service = "frontend"  # Frontend requests are forwarded here
+
+  [[services.ports]]
+    port = 443
+    handlers = ["tls", "http"]
+    service = "frontend"  # Secure connection for frontend
+
+[[services]]
+  internal_port = 3000  # Frontend running on port 3000
+  protocol = "tcp"
+
+  [[services.ports]]
+    port = 3000
+    handlers = ["http"]
+    service = "frontend"  # Frontend requests are forwarded here
+
+[services.tls]
+  cert_manager = "letsencrypt"
