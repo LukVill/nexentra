@@ -28,4 +28,3 @@ app = "nexentra"
 
 [services.tls]
   cert_manager = "letsencrypt"
-cert_manager = "letsencrypt"
