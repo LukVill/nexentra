@@ -1,7 +1,7 @@
-numpy
-pandas
-polars
-scikit-learn
-fastapi
-icecream
-unvicorn
+numpy>=1.21.0  # or a version that supports Python 3.11
+pandas>=2.0.0
+polars>=1.27.0
+scikit-learn>=1.1.0
+fastapi>=0.115.0
+uvicorn>=0.18.0  # correct package name
+icecream>=2.1.4
