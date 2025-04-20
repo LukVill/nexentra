@@ -1,7 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+
+// HTML Components
+import Home from './jsx/Home.jsx';
+import Error404 from './jsx/Error404.jsx';
+
 
 function App() {
   const [homeData, setData] = useState(null);
@@ -19,9 +24,9 @@ function App() {
     <Router>
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <Routes>
             <Route path="/" element={<Home data={homeData} />} />
+            <Route path="*" element={<Error404 />} />
           </Routes>
         </header>
       </div>
@@ -29,20 +34,8 @@ function App() {
   );
 }
 
-const Home = ({ data }) => (
-  <div>
-    <p>
-      Hi! This is Luke's first website from scratch. I have a message from the database: {data}
-    </p>
-    <a
-      className="App-link"
-      href="https://reactjs.org"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Learn React
-    </a>
-  </div>
-);
+
+
+
 
 export default App;

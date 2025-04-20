@@ -25,7 +25,7 @@
 
 
 # Copy frontend build into backend
-COPY --from=frontend /app/front/build ./back/static
+COPY --from=frontend /app/front/build /app/back/static
 
 
 # Set Environment variables
