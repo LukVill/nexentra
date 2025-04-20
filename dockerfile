@@ -20,6 +20,14 @@
     # Copy backend code
     COPY back/ ./back
 
+
+# --------------------
+
+
+# Copy frontend build into backend
+COPY --from=frontend /app/front/build ./back/static
+
+
 # Set Environment variables
 # Immediately print out python prints
 ENV PYTHONUNBUFFERED=1
@@ -34,5 +42,4 @@ EXPOSE 80
 
 # Run backend
 # Run FastAPI app
-WORKDIR /app/backend
 CMD ["uvicorn", "back.app:app", "--host", "0.0.0.0", "--port", "8000"]
