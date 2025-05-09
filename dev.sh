@@ -1,0 +1,1 @@
+concurrently "cd back && uvicorn app:app --reload" "cd front && npm start"

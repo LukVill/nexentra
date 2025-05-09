@@ -1,0 +1,6 @@
+cd front
+npm start
+
+cd back
+venv/Scripts/activate.ps1
+uvicorn app:app --reload

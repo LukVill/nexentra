@@ -2,13 +2,13 @@ import './App.css';
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-
 // HTML Components
-import Home from './jsx/Home.jsx';
-import Error404 from './jsx/Error404.jsx';
-
+import Home from './comp/Home.jsx';
+import Error404 from './comp/Error404.jsx';
 
 function App() {
+
+  // Home data fetch
   const [homeData, setData] = useState(null);
 
   useEffect(() => {
@@ -19,21 +19,29 @@ function App() {
       .catch(error => console.error('Error - failed home api get request: ', error));
   }, []);
 
+
+
+
+  // Routes
   return (
-    // Wrap the entire app in Router
-    <Router>
+    
+
+      // Client Side Routing
+      <Router>
       <div className="App">
         <header className="App-header">
           <Routes>
             <Route path="/" element={<Home data={homeData} />} />
-            <Route path="*" element={<Error404 />} />
           </Routes>
         </header>
       </div>
     </Router>
+
+
   );
 }
 
+//            <Route path="*" element={<Error404 />} />
 
 
 
