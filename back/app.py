@@ -23,7 +23,7 @@ static_dir = os.path.join(os.path.dirname(__file__), "static")
 
 # Mount static files from the React build
 if os.path.isdir("static"):
-    app.mount("/", StaticFiles(directory="static"), name="static")
+    app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
 # Test Hello Endpoint
@@ -31,8 +31,7 @@ if os.path.isdir("static"):
 async def read_root():
     return JSONResponse(
         status_code=200,
-        content={"message": "Hello from Python backend! I love Jayla!",
-                 "error": "Page Not Found"}
+        content={"message": "Hello from Python backend! I love Jayla!"}
     )
 
 # Catch-all for undefined API routes
