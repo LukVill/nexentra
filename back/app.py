@@ -24,6 +24,7 @@ static_dir = os.path.join(os.path.dirname(__file__), "static")
 # Mount static files from the React build
 if os.path.isdir("static"):
     app.mount("/static", StaticFiles(directory="static/static"), name="static")
+    app.mount("/", StaticFiles(directory="static", html=True), name="root-static")
 
 # Serve manifest.json and favicon.ico directly
 @app.get("/manifest.json")
