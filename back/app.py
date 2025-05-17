@@ -23,8 +23,16 @@ static_dir = os.path.join(os.path.dirname(__file__), "static")
 
 # Mount static files from the React build
 if os.path.isdir("static"):
-    app.mount("/static", StaticFiles(directory="static"), name="static")
+    app.mount("/static", StaticFiles(directory="static/static"), name="static")
 
+# Serve manifest.json and favicon.ico directly
+@app.get("/manifest.json")
+async def manifest():
+    return FileResponse(os.path.join(static_dir, "manifest.json"))
+
+@app.get("/favicon.ico")
+async def favicon():
+    return FileResponse(os.path.join(static_dir, "favicon.ico"))
 
 # Test Hello Endpoint
 @app.get("/api/hello")
@@ -41,7 +49,6 @@ async def catch_all_api(path: str):
         status_code=404,
         content={"error": f"API endpoint '/api/{path}' not found."}
     )
-
 
 # Server Side - 404 Handler
 @app.get("/{full_path:path}")

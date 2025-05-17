@@ -1,5 +1,12 @@
+
+
 # ---------- Build React ----------
     FROM node:18 AS frontend
+
+    # Set Environment variables
+    # Immediately print out python prints
+    ENV PYTHONUNBUFFERED=1
+    ENV REACT_APP_API_URL=https://nexentra.fly.dev
 
     WORKDIR /app
     COPY front ./front
@@ -26,12 +33,6 @@
 
 # Copy frontend build into backend
 COPY --from=frontend /app/front/build /app/back/static
-
-
-# Set Environment variables
-# Immediately print out python prints
-ENV PYTHONUNBUFFERED=1
-ENV REACT_APP_API_URL=https://nexentra.fly.dev
 
 
 # Expose app ports
