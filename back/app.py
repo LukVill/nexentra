@@ -21,12 +21,11 @@ app.add_middleware(
 # Determine the path to the static directory
 static_dir = os.path.join(os.path.dirname(__file__), "static")
 
-# Mount static files from the React build
+# Mount static files for /static (for /static/js, /static/css, etc.)
 if os.path.isdir(static_dir):
     app.mount("/static", StaticFiles(directory=os.path.join(static_dir, "static")), name="static")
-    app.mount("/", StaticFiles(directory=static_dir, html=True), name="root-static")
 
-# Serve manifest.json and favicon.ico directly
+# Serve manifest.json, favicon.ico, and logo images directly
 @app.get("/manifest.json")
 async def manifest():
     return FileResponse(os.path.join(static_dir, "manifest.json"))
@@ -34,6 +33,14 @@ async def manifest():
 @app.get("/favicon.ico")
 async def favicon():
     return FileResponse(os.path.join(static_dir, "favicon.ico"))
+
+@app.get("/logo192.png")
+async def logo192():
+    return FileResponse(os.path.join(static_dir, "logo192.png"))
+
+@app.get("/logo512.png")
+async def logo512():
+    return FileResponse(os.path.join(static_dir, "logo512.png"))
 
 # Test Hello Endpoint
 @app.get("/api/hello")
