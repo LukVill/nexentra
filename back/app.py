@@ -46,7 +46,7 @@ async def catch_all_api(path: str):
 # Server Side - 404 Handler
 @app.get("/{full_path:path}")
 async def serve_react_app(full_path: str):
-    index_path = os.path.join(static_dir, "index.html")
+    index_path = os.path.join(static_dir, "index.js")
     if os.path.exists(index_path):
         return FileResponse(index_path)
     # index html not even found
