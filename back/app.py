@@ -19,7 +19,7 @@ app.add_middleware(
 )
 
 # Determine the path to the static directory
-static_dir = os.path.join(os.path.dirname(__file__), "static")
+static_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "static"))
 
 # Mount static files for /static (for /static/js, /static/css, etc.)
 if os.path.isdir(static_dir):
