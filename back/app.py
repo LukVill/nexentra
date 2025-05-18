@@ -51,8 +51,9 @@ async def read_root():
     )
 
 # Catch-all for undefined API routes
-@app.route("/api/{path:path}")
+@app.get("/api/{path:path}")
 async def catch_all_api(path: str):
+    # Return 404 JSON for undefined API endpoints
     return JSONResponse(
         status_code=404,
         content={"error": f"API endpoint '/api/{path}' not found."}
