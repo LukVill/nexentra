@@ -19,7 +19,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      {/*
+        suppressHydrationWarning: Some browser extensions (e.g. Grammarly) inject
+        attributes into DOM nodes after server render which causes React hydration
+        mismatches. Adding this flag silences the mismatch for the body element.
+        If you can, prefer disabling the extension or ensuring server and client
+        render the same attributes.
+      */}
       <body
+        suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
